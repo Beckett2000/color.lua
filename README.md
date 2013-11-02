@@ -23,11 +23,13 @@ Impots/Exports
 
 Hex - Hex string can be passed as an argument to convert to value above or to export from value.
 
-Usage - 
+Usage
+
 In - (string) - Input format from list above
 
 Out - (string) - Output format from list above
 
 Vararg - Accepts table of values or sequential entry of color values
 
-Returns Keyed table of values
+
+Returns --> Keyed table of values
