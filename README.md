@@ -14,9 +14,9 @@ HSV - Hue Saturation Value (0-360,0-100,0-100)
 
 HSL - Hue Saturation Lightness (0-360,0-100,0-100)
 
-LCH 601 - Luma Chroma Hue (0-100,0-100,0-360)
+YCbCr 601 - Luma Chroma Red Chroma Blue (0-100,-50-50,-50-50)
 
-LCH 709 - Luma Chroma Hue (0-100,0-100,0-360)
+YCbCr 709 - Luma Chroma Red Chroma Blue (0-100,-50-50,-50-50)
 
 
 Impots/Exports
