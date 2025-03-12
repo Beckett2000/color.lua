@@ -13,6 +13,7 @@ color({r = 255, g = 0, b = 255}) -- auto detect color based on properties
 color("RGB",255,0,255) -- space/model name passed as string       
 color.RGB(255,0,255) -- indexed space/model creation
 color.RGB({r = 255, g = 0, b = 255}) -- strict creation
+color.HEX("FFF") / color.HEX("00FFFF") -- hex color creation
 ```
 ------ ------ ------ ------ ------
 
@@ -65,7 +66,7 @@ YDbDr
 
 ------------ --------------- --------------- --------------- ---------------
 
-Utility Methods:
+Harmony Methods:
 
 ```
 color.compliment
@@ -86,5 +87,11 @@ Reference names for properties are case insensitive i.e.
 ```
   color.r  color.red  color.Hue  color.V  color.SaTuRaTiOn
 ```
+```
+  color.hex
+```
+
+
+
 
 --------------- --------------- --------------- --------------- ---------------
