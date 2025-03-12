@@ -53,9 +53,9 @@ YDbDr
 Color Conversions:
 
 ```
-  .space / .model -- (set) convert to color space | (get) return space description string
-  :to("space") / :convertTo("space") -- convert color to color space 
-  :as("space") -- create a copy of color and convert it to space
+.space / .model -- (set) convert to color space | (get) return space description string
+:to("space") / :convertTo("space") -- convert color to color space 
+:as("space") -- create a copy of color and convert it to space
 ```
 
 --------------- ---------------
