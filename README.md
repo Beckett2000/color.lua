@@ -66,7 +66,7 @@ YDbDr
 
 ------------ --------------- --------------- --------------- ---------------
 
-Harmony Methods:
+Color Harmony Methods:
 
 ```
 color.compliment
