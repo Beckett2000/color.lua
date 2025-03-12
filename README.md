@@ -24,8 +24,6 @@ Color Conversions:
 :as("space") -- create a copy of color and convert it to space
 ```
 
-Sample Code:
-
 ```lua
 local purple = color("RGB",128,0,128)
 print(purple) --> color]:(RGB) {r = 128, g = 0, b = 128}
