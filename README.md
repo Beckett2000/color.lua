@@ -50,15 +50,20 @@ YDbDr
 
 --------------- --------------- --------------- --------------- ---------------
 
--- Color object properties / methods:
+-- Color Conversions:
+
 ```
 --  .space / .model -- (set) convert to color space | (get) return space description string
 --  :to("space") / :convertTo("space") -- convert color to color space 
 --  :as("space") -- create a copy of color and convert it to space
 ```
+
+--------------- --------------- --------------- --------------- ---------------
+
 -- Properties: All color objects can access their channel properties through their abbreviated or verbose keys.
 --  reference names for properties are case insensitive i.e.
 
---   color.r  color.red  color.Hue  color.V  color.SaTuRaTiOn
-
+```
+  color.r  color.red  color.Hue  color.V  color.SaTuRaTiOn
+```
 --------------- --------------- --------------- --------------- ---------------
