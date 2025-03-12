@@ -1,38 +1,41 @@
-Color-Space.lua
+color.lua
 ===============
 
-Lua - Color Space Conversion 
+Convert between color spaces in lua with functional or object oriented callbacks.
 
-This function written in Lua will allow you to convert between color spaces
+------ ------ ------ ------ ------
 
+Supported Color Spaces:
 
-Currently Supported Color Spaces
+------ ------ ------ 
 
-RGB - Red Green Blue (0-255,0-255,0-255)
+```
+RGB
+HSV
+HSB
+HSL
+HAI
+HWB
+HCG
+HSM
 
-HSI - Hue Saturation Intensity (0-255,0-100,0-255)
+CMY
+CMYK
 
-HSV - Hue Saturation Value (0-360,0-100,0-100)
+XYZ
+LAB
+LUV
 
-HSL - Hue Saturation Lightness (0-360,0-100,0-100)
+LCHab
+LCHub
 
-YCbCr 601 - Luma Chroma Red Chroma Blue (0-100,-50-50,-50-50)
+TSL
 
-YCbCr 709 - Luma Chroma Red Chroma Blue (0-100,-50-50,-50-50)
+YCbCr
+YUV
+YCgCo
+YDbDr
+```
 
+------ ------ ------ ------ ------
 
-
-Impots/Exports
-
-Hex - Hex string can be passed as an argument to convert to value above or to export from value.
-
-Usage
-
-In - (string) - Input format from list above
-
-Out - (string) - Output format from list above
-
-Vararg - Accepts table of values or sequential entry of color values
-
-
-Returns --> Keyed table of values
