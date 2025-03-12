@@ -18,8 +18,6 @@ Constructors: New color objects can be created using methods color() or color.ne
 
 Supported Color Spaces:
 
------- ------ ------ 
-
 ```
 RGB - {red,green,bulue}
 HSV - {hue,saturation,value}
@@ -64,7 +62,9 @@ Sample Code:
 
 ```lua
 local purple = color("RGB",128,0,128)
-local purpleHSV = purple:to("HSV")
+print(purple) --> color]:(RGB) {r = 128, g = 0, b = 128}
+purple:to("HSV")
+print(purple) --> [color]:(HSV) {h = 300.0, s = 100.0, v = 50.196}
 ```
 
 --------------- --------------- --------------- --------------- ---------------
