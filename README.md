@@ -50,7 +50,7 @@ YDbDr
 
 --------------- --------------- --------------- --------------- ---------------
 
--- Color Conversions:
+Color Conversions:
 
 ```
 --  .space / .model -- (set) convert to color space | (get) return space description string
@@ -58,12 +58,22 @@ YDbDr
 --  :as("space") -- create a copy of color and convert it to space
 ```
 
+--------------- ---------------
+
+Sample Code:
+
+```lua
+local purple = color("RGB",128,0,128)
+local purpleHSV = purple:to("HSV")
+```
+
 --------------- --------------- --------------- --------------- ---------------
 
--- Properties: All color objects can access their channel properties through their abbreviated or verbose keys.
---  reference names for properties are case insensitive i.e.
+Properties: All color objects can access their channel properties through their abbreviated or verbose keys.
+Reference names for properties are case insensitive i.e.
 
 ```
   color.r  color.red  color.Hue  color.V  color.SaTuRaTiOn
 ```
+
 --------------- --------------- --------------- --------------- ---------------
