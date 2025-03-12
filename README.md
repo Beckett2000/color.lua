@@ -76,7 +76,7 @@ color.square
 
 ```lua
 local teal = color(0,128,128)
-print(teal:compliment())---> (RGB) {r = 128.0, g = 0.0, b = 0.0}
+print(teal:compliment()) ---> (RGB) {r = 128.0, g = 0.0, b = 0.0}
 ```
 
 ------------ --------------- --------------- --------------- ---------------
