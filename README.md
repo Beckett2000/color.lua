@@ -21,26 +21,26 @@ Supported Color Spaces:
 ------ ------ ------ 
 
 ```
-RGB
-HSV
-HSB
-HSL
-HAI
-HWB
-HCG
-HSM
+RGB - {red,green,bulue}
+HSV - {hue,saturation,value}
+HSB - {hue,saturation,brightness}
+HSL - {hue,saturation,lightness}
+HSI - {hue,saturatio,intensity}
+HWB - {hue,whiteness,blackness}
+HCG - {hue,chroma,greyscale}
+HSM - {hue,saturation,mixture}
 
-CMY
-CMYK
+CMY - {cyan,magenta,yellow}
+CMYK - {cyan,magenta,yellow,keytone}
 
 XYZ
 LAB
 LUV
 
 LCHab
-LCHub
+LCHuv
 
-TSL
+TSL - {teint,saturation,luma}
 
 YCbCr
 YUV
