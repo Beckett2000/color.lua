@@ -13,7 +13,7 @@ Constructors: New color objects can be created using methods color() or color.ne
   color("RGB",255,0,255) -- space/model name passed as string       
   color.RGB(255,0,255) -- indexed space/model creation
   color.RGB({r = 255, g = 0, b = 255}) -- strict creation
-
+```
 ------ ------ ------ ------ ------
 
 Supported Color Spaces:
@@ -48,7 +48,6 @@ YCgCo
 YDbDr
 ```
 
-```
 --------------- --------------- --------------- --------------- ---------------
 
 -- Color object properties / methods:
