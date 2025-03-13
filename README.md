@@ -81,6 +81,11 @@ print(teal:compliment()) ---> (RGB) {r = 128.0, g = 0.0, b = 0.0}
 
 ------------ --------------- --------------- --------------- ---------------
 
+Standards:
+
+
+------------ --------------- --------------- --------------- ---------------
+
 Properties: All color objects can access their channel properties through their abbreviated or verbose keys.
 Reference names for properties are case insensitive i.e.
 
