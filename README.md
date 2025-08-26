@@ -54,9 +54,11 @@ print(purple)
 ```
 ```lua
 local fuchsia = purple:as("CMYK")
-print(fuchsia) -- this is a copy of purple in CMYK that hasnt been changed yet to fuchsia ...
+print(fuchsia) -- this is a copy of purple in CMYK 
 ```
 ```
+-- note: this is a copy of the color purple before it is changed to fuchsia ...
+
 (color:(CMYK)): {
   c = 0.0, 
   m = 100.0, 
