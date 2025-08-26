@@ -52,6 +52,50 @@ print(purple)
   alpha = 255
 }
 ```
+```lua
+local fuchsia = purple:as("CMYK")
+print(fuchsia) -- this is a copy of purple in CMYK that hasnt been changed yet to fuchsia ...
+
+purple.hex = "FF00FF"
+print(fuchsia, fuchsia:as("RGB")) 
+```
+```lua
+local fuchsia = purple:as("CMYK")
+print(fuchsia) -- this is a copy of purple in CMYK that hasnt been changed yet to fuchsia ...
+```
+```
+(color:(CMYK)): {
+  c = 0.0, 
+  m = 100.0, 
+  y = 0.0, 
+  k = 49.803921568627, 
+  hex = '#800080', 
+  alpha = 255
+}
+```
+```lua
+fuchsia.hex = "FF00FF"
+print(fuchsia, fuchsia:as("RGB")) 
+```
+```
+(color:(CMYK)): {
+  c = 0.0, 
+  m = 100.0, 
+  y = 0.0, 
+  k = 0.0, 
+  hex = '#FF00FF', 
+  alpha = 255
+}	
+
+(color:(RGB)): {
+  r = 255.0, 
+  g = 0, 
+  b = 255.0, 
+  hex = '#FF00FF', 
+  alpha = 255
+}
+
+```
 
 --------------- --------------- --------------- --------------- ---------------
 
