@@ -143,10 +143,10 @@ print(teal,teal:compliment()) ---> color:(RGB) {r = 128.0, g = 0.0, b = 0.0}
 ```
 -- this is the color: teal
 (color:(RGB)): {
-  r = 230, 
-  g = 100, 
-  b = 44, 
-  hex = '#E6642C', 
+  r = 128, 
+  g = 0, 
+  b = 128, 
+  hex = '#800080', 
   alpha = 255
 }
 
