@@ -140,6 +140,25 @@ color.square
 local teal = color(0,128,128) ---> color:(RGB) {r = 0.0, g = 128.0, b = 128.0}
 print(teal:compliment()) ---> color:(RGB) {r = 128.0, g = 0.0, b = 0.0}
 ```
+```
+-- this is the color teal -->
+(color:(RGB)): {
+  r = 230, 
+  g = 100, 
+  b = 44, 
+  hex = '#E6642C', 
+  alpha = 255
+}
+
+-- this is the .compliment color red -->
+(color:(RGB)): {
+  r = 128.0, 
+  g = 0.0, 
+  b = 0.0, 
+  hex = '#800000', 
+  alpha = 255
+}
+```
 
 ------------ --------------- --------------- --------------- ---------------
 
