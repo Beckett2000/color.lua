@@ -53,8 +53,9 @@ print(purple)
 }
 ```
 ```lua
+-- this is a copy of purple in CMYK
 local fuchsia = purple:as("CMYK")
-print(fuchsia) -- this is a copy of purple in CMYK 
+print(fuchsia)  
 ```
 ```
 -- note: this is a copy of the color purple before it is changed to fuchsia ...
@@ -69,7 +70,8 @@ print(fuchsia) -- this is a copy of purple in CMYK
 }
 ```
 ```lua
-fuchsia.hex = "FF00FF"
+-- assigning the .hex changes the color value
+fuchsia.hex = "FF00FF" 
 print(fuchsia, fuchsia:as("RGB")) 
 ```
 ```
