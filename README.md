@@ -141,7 +141,7 @@ local teal = color(0,128,128) ---> color:(RGB) {r = 0.0, g = 128.0, b = 128.0}
 print(teal:compliment()) ---> color:(RGB) {r = 128.0, g = 0.0, b = 0.0}
 ```
 ```
--- this is the color teal -->
+-- this is the color: teal -->
 (color:(RGB)): {
   r = 230, 
   g = 100, 
@@ -150,7 +150,7 @@ print(teal:compliment()) ---> color:(RGB) {r = 128.0, g = 0.0, b = 0.0}
   alpha = 255
 }
 
--- this is the .compliment color red -->
+-- this is the .compliment color: maroon -->
 (color:(RGB)): {
   r = 128.0, 
   g = 0.0, 
