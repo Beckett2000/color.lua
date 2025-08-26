@@ -5,7 +5,7 @@ Convert between color spaces in lua with functional or object oriented callbacks
 
 ------ ------ ------ ------ ------
 
-Constructor Syntax: New color objects can be created using methods color() or color.new(). The initializers follow:
+Constructor Syntax: New color objects can be created using methods `color()` or `color.new()`. The initializers follow:
 
 ```lua
 color(255,255,255) -- creates RGB color object
@@ -28,9 +28,28 @@ Color Conversions:
 
 ```lua
 local purple = color("RGB",128,0,128)
-print(purple) --> color]:(RGB) {r = 128, g = 0, b = 128}
+print(purple) 
+```
+(color:(RGB)): {
+  r = 128, 
+  g = 0, 
+  b = 128, 
+  hex = '#800080', 
+  alpha = 255
+}
+```
+```lua
 purple:to("HSV")
-print(purple) --> [color]:(HSV) {h = 300.0, s = 100.0, v = 50.196}
+print(purple) 
+```
+```
+(color:(HSV)): {
+  h = 300.0, 
+  s = 100.0, 
+  v = 50.196078431373, 
+  hex = '#800080', 
+  alpha = 255
+}
 ```
 
 --------------- --------------- --------------- --------------- ---------------
@@ -91,13 +110,11 @@ Properties: All color objects can access their channel properties through their 
 Reference names for properties are case insensitive i.e.
 
 ```
-  color.r  color.red  color.Hue  color.V  color.SaTuRaTiOn
+color.r  color.red  color.Hue  color.V  color.SaTuRaTiOn
 ```
 ```
-  color.hex
+color.hex
 ```
-
-
 
 
 --------------- --------------- --------------- --------------- ---------------
