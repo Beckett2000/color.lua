@@ -30,6 +30,7 @@ Color Conversions:
 local purple = color("RGB",128,0,128)
 print(purple) 
 ```
+```
 (color:(RGB)): {
   r = 128, 
   g = 0, 
