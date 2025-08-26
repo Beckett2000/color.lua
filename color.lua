@@ -19,7 +19,7 @@ local abs,acos,cos,sqrt,pi,pow,ceil,floor,toint,round,iter,push,contains = math.
 ---- ---- ---- -- -- ---- ---- ---- --
 local _color = color -- stores native color data (codea light userdata)
 ---- ---- ---- -- -- ---- ---- ---- --
-local object = require(asset.object) -- dev dep (object.lua)
+-- local object = require(asset.object) -- dev dep (object.lua)
 ---- ---- ---- -- -- ---- ---- ---- --
 
 local handleToString
