@@ -146,7 +146,7 @@ print(teal,teal:compliment()) ---> color:(RGB) {r = 128.0, g = 0.0, b = 0.0}
   r = 0,
   g = 128.0
   b = 128.0,
-  hex = '#800080', 
+  hex = '#008080', 
   alpha = 255
 }
 
