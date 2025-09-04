@@ -25,9 +25,9 @@ local toStringHandlers
 
 ---- ---- ---- -- -- ---- ---- ---- --
 
--- standards - (TODO) - header flags are used to determine which standards are part of the meain color object. i.e. color.CSS.red or color.red if there is more than onr color standard defined which is contains same value. i.e. color.red where color.CSS.red is the same as color.HTML.red and both are defined. A reference to these would return a color object.
+-- definitions - (TODO) - header flags are used to determine which definitions are part of the meain color object. i.e. color.CSS.red or color.red if there is more than onr color standard defined which is contains same value. i.e. color.red where color.CSS.red is the same as color.HTML.red and both are defined. A reference to these would return a color object.
 
-local standards = {
+local definitions = {
   CSS = true, HTML = true, 
   SVG = true, x11 = true
 }
@@ -170,9 +170,9 @@ local colorData = { -- holds: Properties / Range Data for colors
   },  
   
   ---- ---- --- -- --- ---- ---- ---- --- -- --- ---- ---- ---- ----
-  -- this is where the defined cololors of different standards are added. Actual color names are defined externally ...
+  -- this is where the defined cololors of different definitions are added. Actual color names are defined externally ...
   
-  standards = colorNames
+  definitions = colorNames
 
   ---- ---- --- -- --- ---- ---- ---- --- -- --- ---- ---- ---- ----
   
@@ -343,6 +343,26 @@ local function toHEX(channel)
  return channel:len() == 1 and "0"..channel or channel     
 end -- returns: HEX (8 char) -> #RRGGBBAA
 
+
+---- ---- --- -- --- ---- ---- 
+-- (temp) - gets a list of the defined css colors as a table
+
+local function _getCSSColors()
+  
+  local css = colorNames.dictionaries.CSS
+  
+  local names = {}
+  local i,lookup = next(css)
+  while(lookup) do      
+   for name,value in pairs(lookup) do
+    names[name] = value end
+   i,lookup = next(css,i)
+  end 
+
+ return names 
+  
+end --> (table) {colorName:data,...}
+
 ---- ---- --- -- --- ---- ---- 
 -- expands color source for base color object i.e. color.css ...
 
@@ -351,65 +371,35 @@ local function expandColorSource(key)
     -------- ------ -------- ------ 
     -- ::mark:: definedColors - creates / expands predefined color tags into color objects
     
-    local standards = colorData.standards.dictionaries   
+    local definitions = colorData.definitions.dictionaries   
   
     ------ ---- ------ ---- -------
     --- key formatting (alternate names)
     key = key == "css" and "CSS" or key == "html" and "HTML" or key
    ------ ---- ------ ---- -------
   
-    local source = standards and standards[key] and standards[key]
-    
+    local source = definitions and definitions[key] and definitions[key]
     if not source then return end
-    local def,meta = {},{}
-
+  
+    local def = {}
+  
     if key == "CSS" then
+      source = _getCSSColors()
+    end
   
-      meta = {
-        
-        __index = function(dataStore,key) 
-          local data = source[key]
-          
-          -- CSS color expansion
-          if spaceCSS then
-            local cssSpace = self("RGB",data[key].rgb) 
-            
-            local meta = getmetatable(cssSpace)
-            local level = data
-            
-            return cssSpace
-          end
-          
-          if data then  
-            return self("RGB",data.rgb)
-          end
-          
-        end,
-        
-        -- toString for predefined colors
-      __tostring = toStringHandlers.standards(source,key)
-        
-      }
-  
-    ------ ---- ------ ---- -------
-    
-    elseif key == "HTML" or key == "SVG" or key == "x11" then
-                
-      meta = {
+    local meta = {
                     
-        __index = function(self,key) 
+     __index = function(self,key) 
          
-         if source[key] then
-          local hex = source[key].hex
-          return color(hex)
-         end
+      if source[key] then
+       local hex = source[key].hex
+       return color(hex)
+      end
       
       end,       
       
-      __tostring = toStringHandlers.standards(source,key) 
-      }
-                
-    end       
+      __tostring = toStringHandlers.definitions(source,key) 
+    }       
   
     -------- ------ -------- ------  
     
@@ -441,11 +431,11 @@ local color_meta = {
     
     -------- ------ -------- ------ 
   
-    -- ::mark:: named colors / standards - creates / expands predefined color tags into color objects
+    -- ::mark:: named colors / definitions - creates / expands predefined color tags into color objects
     
-    local standards = colorData.standards.dictionaries   
+    local definitions = colorData.definitions.dictionaries   
     
-    local source = standards and standards[key]
+    local source = definitions and definitions[key]
     
     if source then
       return expandColorSource(key)
@@ -1840,7 +1830,6 @@ local function _populateConversions(lookup)
     for a,b in pairs(color.convert) do if b[v] then b[k] = b[v] 
       end end end end
 
-
 ------ ----- ----- ----- ----- ----- ----- 
 
 _populateConversions(colorData.spaces,color.convert) -- populate space aliases
@@ -1867,7 +1856,7 @@ toStringHandlers = {
   
   ---- ------ ---- ------
   
-  standards = function(src,key,opt)
+  definitions = function(src,key,opt)
   
    local cat,sort = table.concat, table.sort
   
@@ -1875,13 +1864,8 @@ toStringHandlers = {
       
     local defs = src
       
-    if key == "CSS" then defs = {}
-     local i,lookup = next(src)
-     while(lookup) do      
-      for name,value in pairs(lookup) do
-       defs[name] = value  end
-      i,lookup = next(src,i)
-     end end
+    if key == "CSS" then 
+     defs = _getCSSColors() end
       
     local colorDefs,count = {}, 0
     for entry,_ in pairs(defs) do 
@@ -1973,4 +1957,4 @@ return color --> --- ---- -----
 
 ----- ----------- ----------- ----------- ----------- 
 -- {{ File End - color.lua }}
------ ----------- ----------- ----------- ----------- 
+----- ----------- ----------- ----------- -----------
