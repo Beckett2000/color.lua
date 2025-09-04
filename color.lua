@@ -1872,9 +1872,19 @@ toStringHandlers = {
    local cat,sort = table.concat, table.sort
   
    return function()
-    
+      
+    local defs = src
+      
+    if key == "CSS" then defs = {}
+     local i,lookup = next(src)
+     while(lookup) do      
+      for name,value in pairs(lookup) do
+       defs[name] = value  end
+      i,lookup = next(src,i)
+     end end
+      
     local colorDefs,count = {}, 0
-    for entry,_ in pairs(src) do 
+    for entry,_ in pairs(defs) do 
       local color = color(_.hex)
       
       table.insert(colorDefs,
