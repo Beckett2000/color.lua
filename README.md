@@ -36,6 +36,7 @@ print(purple)
   g = 0, 
   b = 128, 
   hex = '#800080', 
+  names = '[(css):'purple', (html):'PURPLE', (svg):'purple']', 
   alpha = 255
 }
 ```
@@ -49,6 +50,7 @@ print(purple)
   s = 100.0, 
   v = 50.196078431373, 
   hex = '#800080', 
+  names = '[(css):'purple', (html):'PURPLE', (svg):'purple']', 
   alpha = 255
 }
 ```
@@ -66,6 +68,7 @@ print(fuchsia)
   y = 0.0, 
   k = 49.803921568627, 
   hex = '#800080', 
+  names = '[(css):'purple', (html):'PURPLE', (svg):'purple']', 
   alpha = 255
 }
 ```
@@ -81,6 +84,7 @@ print(fuchsia, fuchsia:as("RGB"))
   y = 0.0, 
   k = 0.0, 
   hex = '#FF00FF', 
+  names = '[(css):'fuchsia', (css):'magenta', (html):'FUCHSIA', (svg):'fuchsia', (svg):'magenta', (x11):'Magenta1']', 
   alpha = 255
 }	
 
@@ -89,6 +93,7 @@ print(fuchsia, fuchsia:as("RGB"))
   g = 0, 
   b = 255.0, 
   hex = '#FF00FF', 
+  names = '[(css):'fuchsia', (css):'magenta', (html):'FUCHSIA', (svg):'fuchsia', (svg):'magenta', (x11):'Magenta1']', 
   alpha = 255
 }
 
