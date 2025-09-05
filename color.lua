@@ -13,6 +13,7 @@
 ----- ----- ----- ----- ----- -----
 
 local abs,acos,cos,sqrt,pi,pow,ceil,floor,toint,round,iter,push,contains = math.abs, math.acos, math.sqrt, math.cos, math.pi, math.pow, math.ceil, math.floor, math.toint
+local cat,unpack,insert = table.concat, unpack or table.unpack, table.insert
 
 ---- ---- ---- -- -- ---- ---- ---- --
 local _color = color -- stores native color data (codea light userdata)
@@ -364,12 +365,13 @@ local function _getCSSColors()
 end --> (table) {colorName:data,...}
 
 ---- ---- --- -- --- ---- ---- 
--- (WIP) - first pass ... if a color has defined names in a given standard, they are returned by this function ... 
+-- (WIP) colors with defined names in a given standard are returned by this function ... 
 
-local function _getColorNames(self)
+local function _getColorNames(self,type)
 
    local names,hex = {}, self.hex
    local cat = table.concat
+   local _names,_tostring = {},{}
 
    local dicts = colorNames.dictionaries
    for standard,lookup in pairs(dicts) do 
@@ -380,13 +382,36 @@ local function _getColorNames(self)
     -- todo - round can be used here ...
     for name,col in pairs(lookup) do
      if col.hex:upper() == hex then
-      push(names,cat{"(",
-       standard:lower(),"):'",name,"'"})
+       push(_tostring,cat{"(",
+        standard:lower(),"):'",name,"'"})
+        
+      if type == "list" then 
+       if not _names[name] then
+        push(names,name); _names[name] = true  
+      end end
      end end end
   
+    table.sort(_tostring)
+    if type == "tostring" then 
+     names = _tostring
+    end
+    
     if #names > 0 then table.sort(names)
-     return names end
+    local printArray = toStringHandlers.array
+
+    if type == "list" then 
+     setmetatable(names,{ 
+      __tostring = printArray})
+    end
+    
+   return names end
   
+end
+
+---- ---- ---- ----
+
+local function _listColorNames(self)
+  return _getColorNames(self,"list")
 end
 
 ---- ---- --- -- --- ---- ---- 
@@ -416,7 +441,6 @@ local function expandColorSource(key)
     local meta = {
                     
      __index = function(self,key) 
-         -- look here!!!!!!!!
       if source[key] then
        local hex = source[key].hex
        return color(hex)
@@ -776,12 +800,17 @@ local color_meta = {
           elseif key == #target + 1 then return data.alpha end
           
         elseif key == "space" or key == "model" then return space -- (getter) returns: (string) color space name
+        
+        ------ ---- ------ ---- ------ 
+        elseif key == "names" then
+         return _listColorNames(self)
+        ------ ---- ------ ---- ------
           
         elseif --[[entry == "a" or ]] entry == "alpha" or entry == "opacity" then return data.alpha -- (getter) returns: (number) alpha property value
           
-          ----- ----- ----- ----- ----- -----
-          -- [getter] color.hex -> hex string
-          ----- ----- ----- ----- ----- -----
+        ----- ----- ----- ----- ----- -----
+        -- [getter] color.hex -> hex string
+        ----- ----- ----- ----- ----- -----
           
         elseif entry == "hex" or entry == "hex8" then 
           local floor,format = math.floor, string.format
@@ -1887,10 +1916,20 @@ color.toString = color.tostring ----
 toStringHandlers = {
   
   ---- ------ ---- ------
+  -- (generic) - __tostring for array printing 
+  
+  array = function(self) 
+    
+   local cat,meta = table.concat, getmetatable(self); setmetatable(self,nil)
+   local str = cat{"(table[",#self,"]: ",tostring(self):match("0x%x+"),"):{",cat(self,", "),"}"};
+   setmetatable(self,meta) 
+   return str end,
+  
+  ---- ------ ---- ------
   
   definitions = function(src,key,opt)
   
-   local cat,sort = table.concat, table.sort
+   local cat,sort = table.concat,table.sort
   
    return function()
       
@@ -1973,7 +2012,7 @@ toStringHandlers = {
     ---- -------- ---- 
     -- adds color names to color data
     
-    local names = _getColorNames(self)
+    local names = _getColorNames(self,"tostring")
     if names then
      push(out,", ",isVertical and spacer or "","names = '[", cat(names,", "),"]'")
     end
@@ -1988,7 +2027,10 @@ toStringHandlers = {
     
     return cat(out) 
     
-  end
+  end,
+  
+  ---- ------ ---- ------
+
 }
 
 ---- ----- ---- --- -- --- ---- ----- ---- --- -- --- ---- ----- ----
@@ -1999,4 +2041,4 @@ return color --> --- ---- -----
 
 ----- ----------- ----------- ----------- ----------- 
 -- {{ File End - color.lua }}
------ ----------- ----------- ----------- ----------- 
+----- ----------- ----------- ----------- -----------
