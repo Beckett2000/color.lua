@@ -18,7 +18,7 @@ local abs,acos,cos,sqrt,pi,pow,ceil,floor,toint,round,iter,push,contains = math.
 local _color = color -- stores native color data (codea light userdata)
 local colorNames = require(asset.color_names)
 ---- ---- ---- -- -- ---- ---- ---- --
-local object = require(asset.object) -- dev dep (object.lua)
+-- local object = require(asset.object) -- dev dep (object.lua)
 ---- ---- ---- -- -- ---- ---- ---- --
 
 local toStringHandlers
@@ -364,6 +364,32 @@ local function _getCSSColors()
 end --> (table) {colorName:data,...}
 
 ---- ---- --- -- --- ---- ---- 
+-- (WIP) - first pass ... if a color has defined names in a given standard, they are returned by this function ... 
+
+local function _getColorNames(self)
+
+   local names,hex = {}, self.hex
+   local cat = table.concat
+
+   local dicts = colorNames.dictionaries
+   for standard,lookup in pairs(dicts) do 
+    if standard == "CSS" then
+     lookup = _getCSSColors()
+    end
+    
+    -- todo - round can be used here ...
+    for name,col in pairs(lookup) do
+     if col.hex:upper() == hex then
+      push(names,cat{"(",
+       standard:lower(),"):'",name,"'"})
+     end end end
+  
+    if #names > 0 then table.sort(names)
+     return names end
+  
+end
+
+---- ---- --- -- --- ---- ---- 
 -- expands color source for base color object i.e. color.css ...
 
 local function expandColorSource(key)
@@ -390,7 +416,7 @@ local function expandColorSource(key)
     local meta = {
                     
      __index = function(self,key) 
-         
+         -- look here!!!!!!!!
       if source[key] then
        local hex = source[key].hex
        return color(hex)
@@ -434,6 +460,13 @@ local color_meta = {
     -- ::mark:: named colors / definitions - creates / expands predefined color tags into color objects
     
     local definitions = colorData.definitions.dictionaries   
+    
+    -- --- -- --- -- --- -- ---
+    if key == "css" then key = "CSS"
+    elseif key == "html" then key = "HTML"
+    elseif key == "svg" then key = "SVG"
+    elseif key == "X11" then key = "x11" end
+    -- --- -- --- -- --- -- ---
     
     local source = definitions and definitions[key]
     
@@ -1778,7 +1811,6 @@ color.convert = { -- Holds internal color conversion functions
   
   ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
   
-  
   HEX = { -- Converts from HEX String (#FFFFFF) / (#FFF)
     
     RGB = function(str) -- converts: Hex (string) to RGB (Red,Green,Blue)
@@ -1864,7 +1896,7 @@ toStringHandlers = {
       
     local defs = src
       
-    if key == "CSS" then 
+    if key == "CSS" or key == "css" then 
      defs = _getCSSColors() end
       
     local colorDefs,count = {}, 0
@@ -1937,6 +1969,16 @@ toStringHandlers = {
       end end
     
     push(out,", ",isVertical and spacer or "","hex = '", self.hex, "'")
+
+    ---- -------- ---- 
+    -- adds color names to color data
+    
+    local names = _getColorNames(self)
+    if names then
+     push(out,", ",isVertical and spacer or "","names = '[", cat(names,", "),"]'")
+    end
+    
+    ---- -------- ---- 
     
     if data.alpha then   
       push(out,", ",isVertical and spacer or "","alpha = ",data.alpha)
@@ -1957,4 +1999,4 @@ return color --> --- ---- -----
 
 ----- ----------- ----------- ----------- ----------- 
 -- {{ File End - color.lua }}
------ ----------- ----------- ----------- -----------
+----- ----------- ----------- ----------- ----------- 
