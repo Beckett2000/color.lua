@@ -18,6 +18,51 @@ color.HEX("FFF") / color.HEX("00FFFF") -- hex color creation
 ```
 ------ ------ ------ ------ ------
 
+```lua
+
+-- Colors can also be created from defined color standards such as css, html, svg, or x11
+
+local css = color.css -- css colors
+local red = color.css.red
+print(red, red:asHSV(), red:as("CMYK"))
+```
+
+```
+(color:(RGB)): {
+  r = 255, 
+  g = 0, 
+  b = 0, 
+  hex = '#FF0000', 
+  names = '[(css):'red', (html):'RED', (svg):'red', (x11):'Red1']', 
+  alpha = 255
+}
+```
+
+```
+(color:(HSV)): {
+  h = 0.0, 
+  s = 100.0, 
+  v = 100.0, 
+  hex = '#FF0000', 
+  names = '[(css):'red', (html):'RED', (svg):'red', (x11):'Red1']', 
+  alpha = 255
+}
+```
+
+```
+(color:(CMYK)): {
+  c = 0.0, 
+  m = 100.0, 
+  y = 100.0, 
+  k = 0.0, 
+  hex = '#FF0000', 
+  names = '[(css):'red', (html):'RED', (svg):'red', (x11):'Red1']', 
+  alpha = 255
+}
+```
+
+------ ------ ------ ------ ------
+
 Color Properties / Conversions:
 
 ```
