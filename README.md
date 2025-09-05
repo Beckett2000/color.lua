@@ -18,10 +18,11 @@ color.HEX("FFF") / color.HEX("00FFFF") -- hex color creation
 ```
 ------ ------ ------ ------ ------
 
-Color Conversions:
+Color Properties / Conversions:
 
 ```
 .space / .model -- (set) convert to color space | (get) return space description string
+.names -- (get) returns an array of defined color names whoch a color object represents
 :to("space") / :convertTo("space") -- convert color to color space 
 :as("space") -- create a copy of color and convert it to space
 ```
