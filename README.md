@@ -18,9 +18,9 @@ color.HEX("FFF") / color.HEX("00FFFF") -- hex color creation
 ```
 ------ ------ ------ ------ ------
 
-```lua
+Colors can also be created from defined color standards such as css, html, svg, or x11
 
--- Colors can also be created from defined color standards such as css, html, svg, or x11
+```lua
 
 local css = color.css -- css colors
 local red = color.css.red
@@ -28,6 +28,8 @@ print(red, red:asHSV(), red:as("CMYK"))
 ```
 
 ```
+-- print 'red' color ...
+
 (color:(RGB)): {
   r = 255, 
   g = 0, 
@@ -39,6 +41,8 @@ print(red, red:asHSV(), red:as("CMYK"))
 ```
 
 ```
+-- print 'red' in HSV space ...
+
 (color:(HSV)): {
   h = 0.0, 
   s = 100.0, 
@@ -50,6 +54,8 @@ print(red, red:asHSV(), red:as("CMYK"))
 ```
 
 ```
+-- print 'red' in CMYK space ...
+
 (color:(CMYK)): {
   c = 0.0, 
   m = 100.0, 
