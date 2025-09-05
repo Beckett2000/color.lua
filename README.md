@@ -18,7 +18,7 @@ color.HEX("FFF") / color.HEX("00FFFF") -- hex color creation
 ```
 ------ ------ ------ ------ ------
 
-Colors can also be created from defined color standards such as css, html, svg, or x11
+Colors can also be created from defined color standards such as `css`, `html`, `svg`, or `x11`
 
 ```lua
 
