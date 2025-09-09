@@ -12,7 +12,7 @@
 -- if true then return end -- blocks the code from running
 ----- ----- ----- ----- ----- -----
 
-local abs,acos,cos,sqrt,pi,pow,ceil,floor,toint,round,iter,push,contains = math.abs, math.acos, math.sqrt, math.cos, math.pi, math.pow, math.ceil, math.floor, math.toint
+local abs,acos,cos,sqrt,pi,pow,ceil,floor,toint,round,iter,keys,push,contains = math.abs, math.acos, math.sqrt, math.cos, math.pi, math.pow, math.ceil, math.floor, math.toint
 local cat,unpack,insert = table.concat, unpack or table.unpack, table.insert
 
 ---- ---- ---- -- -- ---- ---- ---- --
@@ -275,6 +275,21 @@ contains = function(self,...) -- determines if table contains entry
  return false end -- returns: true or false
 
 ---- ---- --- -- --- ---- ---- 
+-- helper: keys(self) -- gets the hash keys of a given lua table
+
+keys = function(self) 
+  
+  local insert = table.insert
+  local keys,index,numeric = {}, next(self)
+  while index do 
+    numeric = type(index) == "number"
+    if not numeric or numeric and index > #self then
+     insert(keys,index) end
+  index = next(self,index) end
+  
+  return unpack(keys) 
+  
+end -- returns: (vararg) table keys
 
 ---- ----- ---- --- -- --- ---- ----- ---- --- -- --- ---- ----- ---- --- -- --- ---- ----- ---- -
 -- --- ---- ----- ---- --- -- --- ---- ----- ---- --- -- --- ---- ----- ---- --- -- --- ---- -----
@@ -371,7 +386,7 @@ local function _getColorNames(self,type)
 
    local names,hex = {}, self.hex
    local cat = table.concat
-   local _names,_tostring = {},{}
+   local _names,_tostring,_ordered = {},{},{}
 
    local dicts = colorNames.dictionaries
    for standard,lookup in pairs(dicts) do 
@@ -382,31 +397,69 @@ local function _getColorNames(self,type)
     -- todo - round can be used here ...
     for name,col in pairs(lookup) do
      if col.hex:upper() == hex then
-       push(_tostring,cat{"(",
-        standard:lower(),"):'",name,"'"})
+      local _standard = standard:lower()
+      push(_tostring,cat{"(",
+       _standard,"):'",name,"'"})
+        
+      if not _ordered[_standard] then
+       _ordered[_standard] ={name}
+      else push(_ordered[_standard],name) end
         
       if type == "list" then 
        if not _names[name] then
         push(names,name); _names[name] = true  
-      end end
-     end end end
+       end end
+      end end end
+  
+    ---- --- ---- --- ---- ---
+    -- get odered list of standardized colors by space ...
+  
+    if type == "ordered" then
+     for _,names in pairs(_ordered) do 
+      table.sort(names) end
+     
+     setmetatable(_ordered,{ 
+      __tostring = function(self) 
+       local cat,meta = table.concat,getmetatable(self)
+        setmetatable(self,nil)
+
+       local len = #{keys(self)}
+       local _tostring = {"(table[",len,"]"--[[,tostring(self):match("0x%x+")]],"):{",}
+
+
+       for i,key in iter(keys(self)) do
+        local ref = self[key];           table.sort(ref);
+
+        push(_tostring,key,":[",cat(ref,", "),"]")
+          
+        if i < len then 
+         push(_tostring,", ") end
+          
+       end; push(_tostring,"}");
+       setmetatable(self,meta)
+        
+      return cat(_tostring) end })
+      
+     return _ordered end
+  
+    ---- --- ---- --- ---- ---
   
     table.sort(_tostring)
     if type == "tostring" then 
      names = _tostring
     end
-    
+
     if #names > 0 then table.sort(names)
+    
     local printArray = toStringHandlers.array
 
     if type == "list" then 
      setmetatable(names,{ 
       __tostring = printArray})
-    end
     
-   return names end
+   return names end end
   
-end
+end --> (table) color names of different types ...
 
 ---- ---- ---- ----
 
@@ -490,6 +543,12 @@ local color_meta = {
     elseif key == "html" then key = "HTML"
     elseif key == "svg" then key = "SVG"
     elseif key == "X11" then key = "x11" end
+    -- --- -- --- -- --- -- ---
+  
+    if key == "transparent" then 
+      return self(0,0,0,0)
+    end
+    
     -- --- -- --- -- --- -- ---
     
     local source = definitions and definitions[key]
@@ -1919,7 +1978,6 @@ toStringHandlers = {
   -- (generic) - __tostring for array printing 
   
   array = function(self) 
-    
    local cat,meta = table.concat, getmetatable(self); setmetatable(self,nil)
    local str = cat{"(table[",#self,"]: ",tostring(self):match("0x%x+"),"):{",cat(self,", "),"}"};
    setmetatable(self,meta) 
@@ -2012,9 +2070,10 @@ toStringHandlers = {
     ---- -------- ---- 
     -- adds color names to color data
     
-    local names = _getColorNames(self,"tostring")
+    local names = _getColorNames(self,"ordered")
+
     if names then
-     push(out,", ",isVertical and spacer or "","names = '[", cat(names,", "),"]'")
+     push(out,", ",isVertical and spacer or "","names = '",tostring(names),"'")
     end
     
     ---- -------- ---- 
@@ -2041,4 +2100,4 @@ return color --> --- ---- -----
 
 ----- ----------- ----------- ----------- ----------- 
 -- {{ File End - color.lua }}
------ ----------- ----------- ----------- -----------
+----- ----------- ----------- ----------- ----------- 
