@@ -74,469 +74,532 @@ local names = {
     
     ------------ ------------ -------
     -- CSS - Color Definitions
-    --- -- --- -- --- -- --- -- ---
-    -- https://www.rapidtables.com/web/css/css-color.html
     ------------ ------------ -------
     
-    CSS = { -- CSS color names (from SVG)
+    --- -- --- -- --- -- --- -- ---
+    -- https://www.rapidtables.com/web/css/css-color.html
+    ---- ---- ---- ----
+    -- https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
+    -- https://www.ditig.com/css-named-colors
+    ------------ ------------ -------
+    
+    CSS = { -- CSS4 color names (from SVG)
       
-      red = {
+      ---- --- ---- --- -- --
+      blue = { -- 'blue' color names ...
         
-        lightsalmon = {
-          ["rgb"] = {255,160,122}, 
-          ["hex"] = "#FFA07A"},
-        salmon = {
-          ["rgb"] = {250,128,114}, 
-          ["hex"] = "#FA8072"},
-        darksalmon = {
-          ["rgb"] = {233,150,122}, 
-          ["hex"] = "#E9967A"},
-        lightcoral = {
-          ["rgb"] = {240,128,128}, 
-          ["hex"] = "#F08080"},
-        indianred = {
-          ["rgb"] = {205,92,92}, 
-          ["hex"] = "#CD5C5C"},
-        crimson = {
-          ["rgb"] = {220,20,60}, 
-          ["hex"] = "#DC143C"},
-        firebrick = {
-          ["rgb"] = {178,34,34}, 
-          ["hex"] = "#B22222"},
-        red = {
-          ["rgb"] = {255,0,0}, 
-          ["hex"] = "#FF0000"},
-        darkred = {
-          ["rgb"] = {139,0,0}, 
-          ["hex"] = "#8B0000"}
-        
+        blue = {
+          ["rgb"] = {0,0,255},
+          ["hex"] = '#0000FF' },
+        cornflowerblue = {
+          ["rgb"] = {100,149,237},
+          ["hex"] = '#6495ED' },
+        darkblue = {
+          ["rgb"] = {0,0,139},
+          ["hex"] = '#00008B' },
+        darkslateblue = {
+          ["rgb"] = {72,61,139},
+          ["hex"] = '#483D8B' },
+        deepskyblue = {
+          ["rgb"] = {0,191,255},
+          ["hex"] = '#00BFFF' },
+        dodgerblue = {
+          ["rgb"] = {30,144,255},
+          ["hex"] = '#1E90FF' },
+        lightblue = {
+          ["rgb"] = {173,216,230},
+          ["hex"] = '#ADD8E6' },
+        lightskyblue = {
+          ["rgb"] = {135,206,250},
+          ["hex"] = '#87CEFA' },
+        lightsteelblue = {
+          ["rgb"] = {176,196,222},
+          ["hex"] = '#B0C4DE' },
+        mediumblue = {
+          ["rgb"] = {0,0,205},
+          ["hex"] = '#0000CD' },
+        mediumslateblue = {
+          ["rgb"] = {123,104,238},
+          ["hex"] = '#7B68EE' },
+        midnightblue = {
+          ["rgb"] = {25,25,112},
+          ["hex"] = '#191970' },
+        navy = {
+          ["rgb"] = {0,0,128},
+          ["hex"] = '#000080' },
+        powderblue = {
+          ["rgb"] = {176,224,230},
+          ["hex"] = '#B0E0E6' },
+        royalblue = {
+          ["rgb"] = {65,105,225},
+          ["hex"] = '#4169E1' },
+        skyblue = {
+          ["rgb"] = {135,206,235},
+          ["hex"] = '#87CEEB' },
+        slateblue = {
+          ["rgb"] = {106,90,205},
+          ["hex"] = '#6A5ACD' },
+        steelblue = {
+          ["rgb"] = {70,130,180},
+          ["hex"] = '#4682B4'
+        }
       },
       
-      orange = {
+      ---- --- ---- --- -- --
+      brown = { -- 'brown' color names ...
+        
+        bisque = {
+          ["rgb"] = {255,228,196},
+          ["hex"] = '#FFE4C4' },
+        blanchedalmond = {
+          ["rgb"] = {255,235,205},
+          ["hex"] = '#FFEBCD' },
+        brown = {
+          ["rgb"] = {165,42,42},
+          ["hex"] = '#A52A2A' },
+        burlywood = {
+          ["rgb"] = {222,184,135},
+          ["hex"] = '#DEB887' },
+        chocolate = {
+          ["rgb"] = {210,105,30},
+          ["hex"] = '#D2691E' },
+        cornsilk = {
+          ["rgb"] = {255,248,220},
+          ["hex"] = '#FFF8DC' },
+        goldenrod = {
+          ["rgb"] = {218,165,32},
+          ["hex"] = '#DAA520' },
+        navajowhite = {
+          ["rgb"] = {255,222,173},
+          ["hex"] = '#FFDEAD' },
+        peru = {
+          ["rgb"] = {205,133,63},
+          ["hex"] = '#CD853F' },
+        rosybrown = {
+          ["rgb"] = {188,143,143},
+          ["hex"] = '#BC8F8F' },
+        saddlebrown = {
+          ["rgb"] = {139,69,19},
+          ["hex"] = '#8B4513' },
+        sandybrown = {
+          ["rgb"] = {244,164,96},
+          ["hex"] = '#F4A460' },
+        sienna = {
+          ["rgb"] = {160,82,45},
+          ["hex"] = '#A0522D' },
+        tan = {
+          ["rgb"] = {210,180,140},
+          ["hex"] = '#D2B48C' },
+        wheat = {
+          ["rgb"] = {245,222,179},
+          ["hex"] = '#F5DEB3'
+        }
+      },
+      
+      ---- --- ---- --- -- --
+      cyan = { -- 'cyan' color names ...
+        
+        aqua = {
+          ["rgb"] = {0,255,255},
+          ["hex"] = '#00FFFF' },
+        aquamarine = {
+          ["rgb"] = {127,255,212},
+          ["hex"] = '#7FFFD4' },
+        cadetblue = {
+          ["rgb"] = {95,158,160},
+          ["hex"] = '#5F9EA0' },
+        cyan = {
+          ["rgb"] = {0,255,255},
+          ["hex"] = '#00FFFF' },
+        darkcyan = {
+          ["rgb"] = {0,139,139},
+          ["hex"] = '#008B8B' },
+        darkturquoise = {
+          ["rgb"] = {0,206,209},
+          ["hex"] = '#00CED1' },
+        lightcyan = {
+          ["rgb"] = {224,255,255},
+          ["hex"] = '#E0FFFF' },
+        lightseagreen = {
+          ["rgb"] = {32,178,170},
+          ["hex"] = '#20B2AA' },
+        mediumaquamarine = {
+          ["rgb"] = {102,205,170},
+          ["hex"] = '#66CDAA' },
+        mediumturquoise = {
+          ["rgb"] = {72,209,204},
+          ["hex"] = '#48D1CC' },
+        paleturquoise = {
+          ["rgb"] = {175,238,238},
+          ["hex"] = '#AFEEEE' },
+        teal = {
+          ["rgb"] = {0,128,128},
+          ["hex"] = '#008080' },
+        turquoise = {
+          ["rgb"] = {64,224,208},
+          ["hex"] = '#40E0D0'
+        }
+      },
+      
+      ---- --- ---- --- -- --
+      gray = { -- 'gray' color names ...
+        
+        black = {
+          ["rgb"] = {0,0,0},
+          ["hex"] = '#000000' },
+        darkgray = {
+          ["rgb"] = {169,169,169},
+          ["hex"] = '#A9A9A9' },
+        darkgrey = {
+          ["rgb"] = {169,169,169},
+          ["hex"] = '#A9A9A9' },
+        darkslategray = {
+          ["rgb"] = {47,79,79},
+          ["hex"] = '#2F4F4F' },
+        darkslategrey = {
+          ["rgb"] = {47,79,79},
+          ["hex"] = '#2F4F4F' },
+        dimgray = {
+          ["rgb"] = {105,105,105},
+          ["hex"] = '#696969' },
+        dimgrey = {
+          ["rgb"] = {105,105,105},
+          ["hex"] = '#696969' },
+        gainsboro = {
+          ["rgb"] = {220,220,220},
+          ["hex"] = '#DCDCDC' },
+        gray = {
+          ["rgb"] = {128,128,128},
+          ["hex"] = '#808080' },
+        grey = {
+          ["rgb"] = {128,128,128},
+          ["hex"] = '#808080' },
+        lightgray = {
+          ["rgb"] = {211,211,211},
+          ["hex"] = '#D3D3D3' },
+        lightgrey = {
+          ["rgb"] = {211,211,211},
+          ["hex"] = '#D3D3D3' },
+        lightslategray = {
+          ["rgb"] = {119,136,153},
+          ["hex"] = '#778899' },
+        lightslategrey = {
+          ["rgb"] = {119,136,153},
+          ["hex"] = '#778899' },
+        silver = {
+          ["rgb"] = {192,192,192},
+          ["hex"] = '#C0C0C0' },
+        slategray = {
+          ["rgb"] = {112,128,144},
+          ["hex"] = '#708090' },
+        slategrey = {
+          ["rgb"] = {112,128,144},
+          ["hex"] = '#708090' },
+        transparent = {
+          ["rgb"] = {0,0,0,0},
+          ["hex"] = '#00000000'
+        }
+      },
+      
+      ---- --- ---- --- -- --
+      green = { -- 'green' color names ...
+        
+        chartreuse = {
+          ["rgb"] = {127,255,0},
+          ["hex"] = '#7FFF00' },
+        darkgreen = {
+          ["rgb"] = {0,100,0},
+          ["hex"] = '#006400' },
+        darkolivegreen = {
+          ["rgb"] = {85,107,47},
+          ["hex"] = '#556B2F' },
+        darkseagreen = {
+          ["rgb"] = {143,188,143},
+          ["hex"] = '#8FBC8F' },
+        forestgreen = {
+          ["rgb"] = {34,139,34},
+          ["hex"] = '#228B22' },
+        green = {
+          ["rgb"] = {0,128,0},
+          ["hex"] = '#008000' },
+        greenyellow = {
+          ["rgb"] = {173,255,47},
+          ["hex"] = '#ADFF2F' },
+        lawngreen = {
+          ["rgb"] = {124,252,0},
+          ["hex"] = '#7CFC00' },
+        lightgreen = {
+          ["rgb"] = {144,238,144},
+          ["hex"] = '#90EE90' },
+        lime = {
+          ["rgb"] = {0,255,0},
+          ["hex"] = '#00FF00' },
+        limegreen = {
+          ["rgb"] = {50,205,50},
+          ["hex"] = '#32CD32' },
+        mediumseagreen = {
+          ["rgb"] = {60,179,113},
+          ["hex"] = '#3CB371' },
+        mediumspringgreen = {
+          ["rgb"] = {0,250,154},
+          ["hex"] = '#00FA9A' },
+        olive = {
+          ["rgb"] = {128,128,0},
+          ["hex"] = '#808000' },
+        olivedrab = {
+          ["rgb"] = {107,142,35},
+          ["hex"] = '#6B8E23' },
+        palegreen = {
+          ["rgb"] = {152,251,152},
+          ["hex"] = '#98FB98' },
+        seagreen = {
+          ["rgb"] = {46,139,87},
+          ["hex"] = '#2E8B57' },
+        springgreen = {
+          ["rgb"] = {0,255,127},
+          ["hex"] = '#00FF7F' },
+        yellowgreen = {
+          ["rgb"] = {154,205,50},
+          ["hex"] = '#9ACD32'
+        }
+      },
+      
+      ---- --- ---- --- -- --
+      orange = { -- 'orange' color names ...
         
         coral = {
-          ["rgb"] = {255,127,80}, 
-          ["hex"] = "#FF7F50"},
-        tomato = {
-          ["rgb"] = {255,99,71}, 
-          ["hex"] = "#FF6347"},
-        orangered = {
-          ["rgb"] = {255,69,0}, 
-          ["hex"] = "#FF4500"},
-        gold = {
-          ["rgb"] = {255,215,0}, 
-          ["hex"] = "#FFD700"},
-        orange = {
-          ["rgb"] = {255,165,0}, 
-          ["hex"] = "#FFA500"},
+          ["rgb"] = {255,127,80},
+          ["hex"] = '#FF7F50' },
         darkorange = {
-          ["rgb"] = {255,140,0}, 
-          ["hex"] = "#FF8C00"}
-        
+          ["rgb"] = {255,140,0},
+          ["hex"] = '#FF8C00' },
+        gold = {
+          ["rgb"] = {255,215,0},
+          ["hex"] = '#FFD700' },
+        orange = {
+          ["rgb"] = {255,165,0},
+          ["hex"] = '#FFA500' },
+        orangered = {
+          ["rgb"] = {255,69,0},
+          ["hex"] = '#FF4500' },
+        tomato = {
+          ["rgb"] = {255,99,71},
+          ["hex"] = '#FF6347'
+        }
       },
       
-      yellow = {
+      ---- --- ---- --- -- --
+      pink = { -- 'pink' color names ...
         
-        lightyellow = {
-          ["rgb"] = {255,255,224}, 
-          ["hex"] = "#FFFFE0"},
-        lemonchiffon = {
-          ["rgb"] = {255,250,205}, 
-          ["hex"] = "#FFFACD"},
-        lightgoldenrodyellow = {
-          ["rgb"] = {250,250,210}, 
-          ["hex"] = "#FAFAD2"},
-        papayawhip = {
-          ["rgb"] = {255,239,213}, 
-          ["hex"] = "#FFEFD5"},
-        moccasin = {
-          ["rgb"] = {255,228,181}, 
-          ["hex"] = "#FFE4B5"},
-        peachpuff = {
-          ["rgb"] = {255,218,185}, 
-          ["hex"] = "#FFDAB9"},
-        palegoldenrod = {
-          ["rgb"] = {238,232,170}, 
-          ["hex"] = "#EEE8AA"},
-        khaki = {
-          ["rgb"] = {240,230,140}, 
-          ["hex"] = "#F0E68C"},
-        darkkhaki = {
-          ["rgb"] = {189,183,107}, 
-          ["hex"] = "#BDB76B"},
-        yellow = {
-          ["rgb"] = {255,255,0}, 
-          ["hex"] = "#FFFF00"}
-      },
-      
-      green = {
-        
-        lawngreen = {
-          ["rgb"] = {124,252,0}, 
-          ["hex"] = "#7CFC00"},
-        chartreuse = {
-          ["rgb"] = {127,255,0}, 
-          ["hex"] = "#7FFF00"},
-        limegreen = {
-          ["rgb"] = {50,205,50}, 
-          ["hex"] = "#32CD32"},
-        lime = {
-          ["rgb"] = {0,255,0}, 
-          ["hex"] = "#00FF00"},
-        forestgreen = {
-          ["rgb"] = {34,139,34}, 
-          ["hex"] = "#228B22"},
-        green = {
-          ["rgb"] = {0,128,0}, 
-          ["hex"] = "#008000"},
-        darkgreen = {
-          ["rgb"] = {0,100,0}, 
-          ["hex"] = "#006400"},
-        greenyellow = {
-          ["rgb"] = {173,255,47}, 
-          ["hex"] = "#ADFF2F"},
-        yellowgreen = {
-          ["rgb"] = {154,205,50}, 
-          ["hex"] = "#9ACD32"},
-        springgreen = {
-          ["rgb"] = {0,255,127}, 
-          ["hex"] = "#00FF7F"},
-        mediumspringgreen = {
-          ["rgb"] = {0,250,154}, 
-          ["hex"] = "#00FA9A"},
-        lightgreen = {
-          ["rgb"] = {144,238,144}, 
-          ["hex"] = "#90EE90"},
-        palegreen = {
-          ["rgb"] = {152,251,152}, 
-          ["hex"] = "#98FB98"},
-        darkseagreen = {
-          ["rgb"] = {143,188,143}, 
-          ["hex"] = "#8FBC8F"},
-        mediumseagreen = {
-          ["rgb"] = {60,179,113}, 
-          ["hex"] = "#3CB371"},
-        seagreen = {
-          ["rgb"] = {46,139,87}, 
-          ["hex"] = "#2E8B57"},
-        olive = {
-          ["rgb"] = {128,128,0}, 
-          ["hex"] = "#808000"},
-        darkolivegreen = {
-          ["rgb"] = {85,107,47}, 
-          ["hex"] = "#556B2F"},
-        olivedrab = {
-          ["rgb"] = {107,142,35}, 
-          ["hex"] = "#6B8E23"}
-      },
-      
-      cyan = {
-        
-        lightcyan = {
-          ["rgb"] = {224,255,255}, 
-          ["hex"] = "#E0FFFF"},
-        cyan = {
-          ["rgb"] = {0,255,255}, 
-          ["hex"] = "#00FFFF"},
-        aqua = {
-          ["rgb"] = {0,255,255}, 
-          ["hex"] = "#00FFFF"},
-        aquamarine = {
-          ["rgb"] = {127,255,212}, 
-          ["hex"] = "#7FFFD4"},
-        mediumaquamarine = {
-          ["rgb"] = {102,205,170}, 
-          ["hex"] = "#66CDAA"},
-        paleturquoise = {
-          ["rgb"] = {175,238,238}, 
-          ["hex"] = "#AFEEEE"},
-        turquoise = {
-          ["rgb"] = {64,224,208}, 
-          ["hex"] = "#40E0D0"},
-        mediumturquoise = {
-          ["rgb"] = {72,209,204}, 
-          ["hex"] = "#48D1CC"},
-        darkturquoise = {
-          ["rgb"] = {0,206,209}, 
-          ["hex"] = "#00CED1"},
-        lightseagreen = {
-          ["rgb"] = {32,178,170}, 
-          ["hex"] = "#20B2AA"},
-        cadetblue = {
-          ["rgb"] = {95,158,160}, 
-          ["hex"] = "#5F9EA0"},
-        darkcyan = {
-          ["rgb"] = {0,139,139}, 
-          ["hex"] = "#008B8B"},
-        teal = {
-          ["rgb"] = {0,128,128}, 
-          ["hex"] = "#008080"}
-      },
-      
-      blue = {
-        
-        powderblue = {
-          ["rgb"] = {176,224,230}, 
-          ["hex"] = "#B0E0E6"},
-        lightblue = {
-          ["rgb"] = {173,216,230}, 
-          ["hex"] = "#ADD8E6"},
-        lightskyblue = {
-          ["rgb"] = {135,206,250}, 
-          ["hex"] = "#87CEFA"},
-        skyblue = {
-          ["rgb"] = {135,206,235}, 
-          ["hex"] = "#87CEEB"},
-        deepskyblue = {
-          ["rgb"] = {0,191,255}, 
-          ["hex"] = "#00BFFF"},
-        lightsteelblue = {
-          ["rgb"] = {176,196,222}, 
-          ["hex"] = "#B0C4DE"},
-        dodgerblue = {
-          ["rgb"] = {30,144,255}, 
-          ["hex"] = "#1E90FF"},
-        cornflowerblue = {
-          ["rgb"] = {100,149,237}, 
-          ["hex"] = "#6495ED"},
-        steelblue = {
-          ["rgb"] = {70,130,180}, 
-          ["hex"] = "#4682B4"},
-        royalblue = {
-          ["rgb"] = {65,105,225}, 
-          ["hex"] = "#4169E1"},
-        blue = {
-          ["rgb"] = {0,0,255}, 
-          ["hex"] = "#0000FF"},
-        mediumblue = {
-          ["rgb"] = {0,0,205}, 
-          ["hex"] = "#0000CD"},
-        darkblue = {
-          ["rgb"] = {0,0,139}, 
-          ["hex"] = "#00008B"},
-        navy = {
-          ["rgb"] = {0,0,128}, 
-          ["hex"] = "#000080"},
-        midnightblue = {
-          ["rgb"] = {25,25,112}, 
-          ["hex"] = "#191970"},
-        mediumslateblue = {
-          ["rgb"] = {123,104,238}, 
-          ["hex"] = "#7B68EE"},
-        slateblue = {
-          ["rgb"] = {106,90,205}, 
-          ["hex"] = "#6A5ACD"},
-        darkslateblue = {
-          ["rgb"] = {72,61,139}, 
-          ["hex"] = "#483D8B"}
-      },
-      
-      purple = {
-        
-        lavender = {
-          ["rgb"] = {230,230,250}, 
-          ["hex"] = "#E6E6FA"},
-        thistle = {
-          ["rgb"] = {216,191,216}, 
-          ["hex"] = "#D8BFD8"},
-        plum = {
-          ["rgb"] = {221,160,221}, 
-          ["hex"] = "#DDA0DD"},
-        violet = {
-          ["rgb"] = {238,130,238}, 
-          ["hex"] = "#EE82EE"},
-        orchid = {
-          ["rgb"] = {218,112,214}, 
-          ["hex"] = "#DA70D6"},
-        fuchsia = {
-          ["rgb"] = {255,0,255}, 
-          ["hex"] = "#FF00FF"},
-        magenta = {
-          ["rgb"] = {255,0,255}, 
-          ["hex"] = "#FF00FF"},
-        mediumorchid = {
-          ["rgb"] = {186,85,211}, 
-          ["hex"] = "#BA55D3"},
-        mediumpurple = {
-          ["rgb"] = {147,112,219}, 
-          ["hex"] = "#9370DB"},
-        blueviolet = {
-          ["rgb"] = {138,43,226}, 
-          ["hex"] = "#8A2BE2"},
-        darkviolet = {
-          ["rgb"] = {148,0,211}, 
-          ["hex"] = "#9400D3"},
-        darkorchid = {
-          ["rgb"] = {153,50,204}, 
-          ["hex"] = "#9932CC"},
-        darkmagenta = {
-          ["rgb"] = {139,0,139}, 
-          ["hex"] = "#8B008B"},
-        purple = {
-          ["rgb"] = {128,0,128}, 
-          ["hex"] = "#800080"},
-        indigo = {
-          ["rgb"] = {75,0,130}, 
-          ["hex"] = "#4B0082"}
-      },
-      
-      pink = {
-        
-        pink = {
-          ["rgb"] = {255,192,203}, 
-          ["hex"] = "#FFC0CB"},
-        lightpink = {
-          ["rgb"] = {255,182,193}, 
-          ["hex"] = "#FFB6C1"},
-        hotpink = {
-          ["rgb"] = {255,105,180}, 
-          ["hex"] = "#FF69B4"},
         deeppink = {
-          ["rgb"] = {255,20,147}, 
-          ["hex"] = "#FF1493"},
-        palevioletred = {
-          ["rgb"] = {219,112,147}, 
-          ["hex"] = "#DB7093"},
+          ["rgb"] = {255,20,147},
+          ["hex"] = '#FF1493' },
+        hotpink = {
+          ["rgb"] = {255,105,180},
+          ["hex"] = '#FF69B4' },
+        lightpink = {
+          ["rgb"] = {255,182,193},
+          ["hex"] = '#FFB6C1' },
         mediumvioletred = {
-          ["rgb"] = {199,21,133}, 
-          ["hex"] = "#C71585"}
-        
+          ["rgb"] = {199,21,133},
+          ["hex"] = '#C71585' },
+        palevioletred = {
+          ["rgb"] = {219,112,147},
+          ["hex"] = '#DB7093' },
+        pink = {
+          ["rgb"] = {255,192,203},
+          ["hex"] = '#FFC0CB'
+        }
       },
       
-      white = {
+      ---- --- ---- --- -- --
+      purple = { -- 'purple' color names ...
         
-        white = {
-          ["rgb"] = {255,255,255}, 
-          ["hex"] = "#FFFFFF"},
-        snow = {
-          ["rgb"] = {255,250,250}, 
-          ["hex"] = "#FFFAFA"},
-        honeydew = {
-          ["rgb"] = {240,255,240}, 
-          ["hex"] = "#F0FFF0"},
-        mintcream = {
-          ["rgb"] = {245,255,250}, 
-          ["hex"] = "#F5FFFA"},
-        azure = {
-          ["rgb"] = {240,255,255}, 
-          ["hex"] = "#F0FFFF"},
+        blueviolet = {
+          ["rgb"] = {138,43,226},
+          ["hex"] = '#8A2BE2' },
+        darkmagenta = {
+          ["rgb"] = {139,0,139},
+          ["hex"] = '#8B008B' },
+        darkorchid = {
+          ["rgb"] = {153,50,204},
+          ["hex"] = '#9932CC' },
+        darkviolet = {
+          ["rgb"] = {148,0,211},
+          ["hex"] = '#9400D3' },
+        fuchsia = {
+          ["rgb"] = {255,0,255},
+          ["hex"] = '#FF00FF' },
+        indigo = {
+          ["rgb"] = {75,0,130},
+          ["hex"] = '#4B0082' },
+        lavender = {
+          ["rgb"] = {230,230,250},
+          ["hex"] = '#E6E6FA' },
+        magenta = {
+          ["rgb"] = {255,0,255},
+          ["hex"] = '#FF00FF' },
+        mediumorchid = {
+          ["rgb"] = {186,85,211},
+          ["hex"] = '#BA55D3' },
+        mediumpurple = {
+          ["rgb"] = {147,112,219},
+          ["hex"] = '#9370DB' },
+        orchid = {
+          ["rgb"] = {218,112,214},
+          ["hex"] = '#DA70D6' },
+        plum = {
+          ["rgb"] = {221,160,221},
+          ["hex"] = '#DDA0DD' },
+        purple = {
+          ["rgb"] = {128,0,128},
+          ["hex"] = '#800080' },
+        rebeccapurple = {
+          ["rgb"] = {102,51,153},
+          ["hex"] = '#663399' },
+        thistle = {
+          ["rgb"] = {216,191,216},
+          ["hex"] = '#D8BFD8' },
+        violet = {
+          ["rgb"] = {238,130,238},
+          ["hex"] = '#EE82EE'
+        }
+      },
+      
+      ---- --- ---- --- -- --
+      red = { -- 'red' color names ...
+        
+        crimson = {
+          ["rgb"] = {220,20,60},
+          ["hex"] = '#DC143C' },
+        darkred = {
+          ["rgb"] = {139,0,0},
+          ["hex"] = '#8B0000' },
+        darksalmon = {
+          ["rgb"] = {233,150,122},
+          ["hex"] = '#E9967A' },
+        firebrick = {
+          ["rgb"] = {178,34,34},
+          ["hex"] = '#B22222' },
+        indianred = {
+          ["rgb"] = {205,92,92},
+          ["hex"] = '#CD5C5C' },
+        lightcoral = {
+          ["rgb"] = {240,128,128},
+          ["hex"] = '#F08080' },
+        lightsalmon = {
+          ["rgb"] = {255,160,122},
+          ["hex"] = '#FFA07A' },
+        maroon = {
+          ["rgb"] = {128,0,0},
+          ["hex"] = '#800000' },
+        red = {
+          ["rgb"] = {255,0,0},
+          ["hex"] = '#FF0000' },
+        salmon = {
+          ["rgb"] = {250,128,114},
+          ["hex"] = '#FA8072'
+        }
+      },
+      
+      ---- --- ---- --- -- --
+      white = { -- 'white' color names ...
+        
         aliceblue = {
-          ["rgb"] = {240,248,255}, 
-          ["hex"] = "#F0F8FF"},
-        ghostwhite = {
-          ["rgb"] = {248,248,255}, 
-          ["hex"] = "#F8F8FF"},
-        whitesmoke = {
-          ["rgb"] = {245,245,245}, 
-          ["hex"] = "#F5F5F5"},
-        seashell = {
-          ["rgb"] = {255,245,238}, 
-          ["hex"] = "#FFF5EE"},
-        beige = {
-          ["rgb"] = {245,245,220}, 
-          ["hex"] = "#F5F5DC"},
-        oldlace = {
-          ["rgb"] = {253,245,230}, 
-          ["hex"] = "#FDF5E6"},
-        floralwhite = {
-          ["rgb"] = {255,250,240}, 
-          ["hex"] = "#FFFAF0"},
-        ivory = {
-          ["rgb"] = {255,255,240}, 
-          ["hex"] = "#FFFFF0"},
+          ["rgb"] = {240,248,255},
+          ["hex"] = '#F0F8FF' },
         antiquewhite = {
-          ["rgb"] = {250,235,215}, 
-          ["hex"] = "#FAEBD7"},
-        linen = {
-          ["rgb"] = {250,240,230}, 
-          ["hex"] = "#FAF0E6"},
+          ["rgb"] = {250,235,215},
+          ["hex"] = '#FAEBD7' },
+        azure = {
+          ["rgb"] = {240,255,255},
+          ["hex"] = '#F0FFFF' },
+        beige = {
+          ["rgb"] = {245,245,220},
+          ["hex"] = '#F5F5DC' },
+        floralwhite = {
+          ["rgb"] = {255,250,240},
+          ["hex"] = '#FFFAF0' },
+        ghostwhite = {
+          ["rgb"] = {248,248,255},
+          ["hex"] = '#F8F8FF' },
+        honeydew = {
+          ["rgb"] = {240,255,240},
+          ["hex"] = '#F0FFF0' },
+        ivory = {
+          ["rgb"] = {255,255,240},
+          ["hex"] = '#FFFFF0' },
         lavenderblush = {
-          ["rgb"] = {255,240,245}, 
-          ["hex"] = "#FFF0F5"},
+          ["rgb"] = {255,240,245},
+          ["hex"] = '#FFF0F5' },
+        linen = {
+          ["rgb"] = {250,240,230},
+          ["hex"] = '#FAF0E6' },
+        mintcream = {
+          ["rgb"] = {245,255,250},
+          ["hex"] = '#F5FFFA' },
         mistyrose = {
-          ["rgb"] = {255,228,225}, 
-          ["hex"] = "#FFE4E1"}
+          ["rgb"] = {255,228,225},
+          ["hex"] = '#FFE4E1' },
+        oldlace = {
+          ["rgb"] = {253,245,230},
+          ["hex"] = '#FDF5E6' },
+        seashell = {
+          ["rgb"] = {255,245,238},
+          ["hex"] = '#FFF5EE' },
+        snow = {
+          ["rgb"] = {255,250,250},
+          ["hex"] = '#FFFAFA' },
+        white = {
+          ["rgb"] = {255,255,255},
+          ["hex"] = '#FFFFFF' },
+        whitesmoke = {
+          ["rgb"] = {245,245,245},
+          ["hex"] = '#F5F5F5'
+        }
       },
       
-      gray = {
+      ---- --- ---- --- -- --
+      yellow = { -- 'yellow' color names ...
         
-        gainsboro = {
-          ["rgb"] = {220,220,220}, 
-          ["hex"] = "#DCDCDC"},
-        lightgray = {
-          ["rgb"] = {211,211,211}, 
-          ["hex"] = "#D3D3D3"},
-        silver = {
-          ["rgb"] = {192,192,192}, 
-          ["hex"] = "#C0C0C0"},
-        darkgray = {
-          ["rgb"] = {169,169,169}, 
-          ["hex"] = "#A9A9A9"},
-        gray = {
-          ["rgb"] = {128,128,128}, 
-          ["hex"] = "#808080"},
-        dimgray = {
-          ["rgb"] = {105,105,105}, 
-          ["hex"] = "#696969"},
-        lightslategray = {
-          ["rgb"] = {119,136,153}, 
-          ["hex"] = "#778899"},
-        slategray = {
-          ["rgb"] = {112,128,144}, 
-          ["hex"] = "#708090"},
-        darkslategray = {
-          ["rgb"] = {47,79,79}, 
-          ["hex"] = "#2F4F4F"},
-        black = {
-          ["rgb"] = {0,0,0}, 
-          ["hex"] = "#000000"}
-      },
-      
-      brown = {
-        
-        cornsilk = {
-          ["rgb"] = {255,248,220}, 
-          ["hex"] = "#FFF8DC"},
-        blanchedalmond = {
-          ["rgb"] = {255,235,205}, 
-          ["hex"] = "#FFEBCD"},
-        bisque = {
-          ["rgb"] = {255,228,196}, 
-          ["hex"] = "#FFE4C4"},
-        navajowhite = {
-          ["rgb"] = {255,222,173}, 
-          ["hex"] = "#FFDEAD"},
-        wheat = {
-          ["rgb"] = {245,222,179}, 
-          ["hex"] = "#F5DEB3"},
-        burlywood = {
-          ["rgb"] = {222,184,135}, 
-          ["hex"] = "#DEB887"},
-        tan = {
-          ["rgb"] = {210,180,140}, 
-          ["hex"] = "#D2B48C"},
-        rosybrown = {
-          ["rgb"] = {188,143,143}, 
-          ["hex"] = "#BC8F8F"},
-        sandybrown = {
-          ["rgb"] = {244,164,96}, 
-          ["hex"] = "#F4A460"},
-        goldenrod = {
-          ["rgb"] = {218,165,32}, 
-          ["hex"] = "#DAA520"},
-        peru = {
-          ["rgb"] = {205,133,63}, 
-          ["hex"] = "#CD853F"},
-        chocolate = {
-          ["rgb"] = {210,105,30}, 
-          ["hex"] = "#D2691E"},
-        saddlebrown = {
-          ["rgb"] = {139,69,19}, 
-          ["hex"] = "#8B4513"}
+        darkgoldenrod = {
+          ["rgb"] = {184,134,11},
+          ["hex"] = '#B8860B' },
+        darkkhaki = {
+          ["rgb"] = {189,183,107},
+          ["hex"] = '#BDB76B' },
+        khaki = {
+          ["rgb"] = {240,230,140},
+          ["hex"] = '#F0E68C' },
+        lemonchiffon = {
+          ["rgb"] = {255,250,205},
+          ["hex"] = '#FFFACD' },
+        lightgoldenrodyellow = {
+          ["rgb"] = {250,250,210},
+          ["hex"] = '#FAFAD2' },
+        lightyellow = {
+          ["rgb"] = {255,255,224},
+          ["hex"] = '#FFFFE0' },
+        moccasin = {
+          ["rgb"] = {255,228,181},
+          ["hex"] = '#FFE4B5' },
+        palegoldenrod = {
+          ["rgb"] = {238,232,170},
+          ["hex"] = '#EEE8AA' },
+        papayawhip = {
+          ["rgb"] = {255,239,213},
+          ["hex"] = '#FFEFD5' },
+        peachpuff = {
+          ["rgb"] = {255,218,185},
+          ["hex"] = '#FFDAB9' },
+        yellow = {
+          ["rgb"] = {255,255,0},
+          ["hex"] = '#FFFF00'
+        }
       }
       
     },
-
+    
     ------------ ------------ -------
     -- SVG 1.0 color keyword names
     ------------ ------------ -------
